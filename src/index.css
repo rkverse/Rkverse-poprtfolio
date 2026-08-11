@@ -18,12 +18,44 @@ body {
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-ink-300/50 dark:bg-ink-600 rounded-full;
+  @apply bg-ink-300/60 dark:bg-ink-600 rounded-full border border-transparent bg-clip-padding;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ink-400/80 dark:bg-ink-500;
+}
+
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107, 115, 133, 0.7) transparent;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(107, 115, 133, 0.7);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark .modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 147, 165, 0.7);
+}
+
+.dark .modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 191, 204, 0.8);
 }
 
 :focus-visible {
