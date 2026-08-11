@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { FiCheck, FiGithub, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi'
 import { contact, personalInfo, socialLinks } from '../data/portfolio'
 import SectionHeading from '../components/SectionHeading'
@@ -6,18 +7,40 @@ import Reveal from '../components/Reveal'
 
 const iconMap = { github: FiGithub, linkedin: FiLinkedin, mail: FiMail }
 
+// Replace with your actual EmailJS values
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'sent' | 'error'
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name || 'a visitor'}`)
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`
-    setSent(true)
+    setStatus('sending')
+
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
+      .then(() => {
+        setStatus('sent')
+        setForm({ name: '', email: '', message: '' })
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err)
+        setStatus('error')
+      })
   }
 
   return (
@@ -123,19 +146,21 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full sm:w-auto justify-center">
-                {sent ? (
+              <button type="submit" disabled={status === 'sending'} className="btn-primary w-full sm:w-auto justify-center">
+                {status === 'sending' && 'Sending…'}
+                {status === 'sent' && (
                   <>
-                    <FiCheck size={16} /> Opening your mail client…
+                    <FiCheck size={16} /> Message sent!
                   </>
-                ) : (
-                  'Send Message'
                 )}
+                {(status === 'idle' || status === 'error') && 'Send Message'}
               </button>
-              <p className="font-mono text-[11px] text-ink-400">
-                Submitting opens your email client with this message pre-filled. To collect messages
-                directly, wire this form to a service like Formspree or EmailJS.
-              </p>
+
+              {status === 'error' && (
+                <p className="font-mono text-[11px] text-red-500">
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
             </form>
           </Reveal>
         </div>
