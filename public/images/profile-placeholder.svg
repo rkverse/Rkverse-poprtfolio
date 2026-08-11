@@ -1,0 +1,19 @@
+<svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#131824"/>
+      <stop offset="100%" stop-color="#0A0D13"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#3FD8C2" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="480" fill="url(#bg)"/>
+  <rect width="480" height="480" fill="url(#grid)"/>
+  <circle cx="240" cy="195" r="80" fill="none" stroke="#3FD8C2" stroke-width="2" stroke-opacity="0.5"/>
+  <circle cx="240" cy="195" r="80" fill="#1B212F"/>
+  <circle cx="240" cy="175" r="34" fill="#2A3142"/>
+  <path d="M170 280 Q240 220 310 280 L330 340 Q240 370 150 340 Z" fill="#2A3142"/>
+  <text x="240" y="430" text-anchor="middle" font-family="monospace" font-size="18" fill="#3FD8C2" letter-spacing="1">REPLACE_ME.jpg</text>
+  <text x="240" y="454" text-anchor="middle" font-family="monospace" font-size="12" fill="#6B7385">480 x 480 recommended</text>
+</svg>
