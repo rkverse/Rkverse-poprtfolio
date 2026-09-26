@@ -49,7 +49,7 @@ export default function About() {
                   <span
                     key={skill.name}
                     title={skill.category}
-                    className="font-mono text-xs px-3 py-2 rounded-md bg-ink-50 dark:bg-ink-800 border border-ink-100 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:border-teal-deep dark:hover:border-teal hover:text-teal-deep dark:hover:text-teal transition-colors"
+                    className="font-mono text-xs px-3 py-2 rounded-md bg-ink-50 dark:bg-ink-800 border border-ink-100 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:border-teal-deep dark:hover:border-teal hover:text-teal-deep dark:hover:text-teal transition-colors cursor-pointer"
                   >
                     {skill.name}
                   </span>

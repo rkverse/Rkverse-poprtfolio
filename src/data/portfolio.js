@@ -21,7 +21,7 @@ export const personalInfo = {
   availability: "Available for freelance work",
   email: "rajkaranprem@outlook.com",
   phone: "+91 9962313298",
-  profileImage: "/images/myimg.png",
+  profileImage: "/images/Aboutme.jpg",
   resumeUrl: "/resume.pdf",
 };
 
@@ -55,16 +55,24 @@ export const about = {
   ],
   skills: [
     { name: "JavaScript", category: "Language" },
+    { name: "Java", category: "Language" },
+    { name: "Python", category: "Language" },
     { name: "React JS", category: "Frontend" },
     { name: "React Native", category: "Mobile" },
     { name: "Node JS", category: "Backend" },
+    { name: "Express JS", category: "Backend" },
     { name: "Django", category: "Backend" },
+    { name: "Mongo DB", category: "DataBase" },
+    { name: "SQL", category: "DataBase" },
     { name: "HTML", category: "Frontend" },
     { name: "CSS", category: "Frontend" },
     { name: "Tailwind CSS", category: "Frontend" },
     { name: "Bootstrap", category: "Frontend" },
     { name: "Firebase", category: "Backend" },
     { name: "Git", category: "Tooling" },
+    { name: "Render", category: "Deployment" },
+    { name: "Vercel", category: "Deployment" },
+    { name: "Hostinger VPS", category: "Deployment" },
   ],
   education: [
     {
@@ -127,17 +135,17 @@ export const projects = [
     description:
       "CRM built for SAP use cases, supporting student, admin, and teacher portals. Streamlined academic and administrative workflows through role-based access.",
     image: "/images/Sap_app.jpeg",
-    tags: ["React JS", "Node JS", "Role-based Access", "ERP/CRM"],
-    link: "#",
+    tags: ["React JS", "Express JS", "Role-based Access", "ERP/CRM"],
+    link: "https://play.google.com/store/apps/details?id=com.sampathacademy.sapscholar",
     featured: true,
   },
   {
-    title: "Employee Management System",
+    title: "POS and Billing Software for SRM Ramapuram",
     description:
-      "A web application for managing employee data, attendance, and performance metrics. Designed to enhance administrative operations with a user-friendly interface and secure data handling.",
-    image: "/images/Checklist_Mockup_laptop.png",
-    tags: ["React JS", "Tailwind CSS", "UI/UX Design"],
-    link: "#",
+      "A POS and billing system for SRM Ramapuram, designed to manage transactions, inventory, and reporting efficiently. Built with a focus on speed and reliability.",
+    image: "/images/srm_project.jpg",
+    tags: ["React JS", "Express JS", "UI/UX Design"],
+    link: "https://srm-ddp-management-software.onrender.com/",
     featured: false,
   },
   {
@@ -146,7 +154,7 @@ export const projects = [
       "A real-world e-commerce website built for an RC toy company to expand their online presence with new ideas at an affordable price — a serverless, user-friendly shopping experience.",
     image: "/images/Torque_toyzz_mobile.png",
     tags: ["React JS", "E-commerce", "Serverless", "Firebase"],
-    link: "#",
+    link: "https://www.torquetoyzz.com/",
     featured: true,
   },
 ];
