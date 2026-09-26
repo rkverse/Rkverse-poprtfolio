@@ -22,8 +22,8 @@ export default function AnimatedCursor() {
 
   const getColors = () =>
     isDark.current
-      ? { dot: '#3FD8C2', ring: '#3FD8C2', particle: '#3FD8C2' }
-      : { dot: '#0E9F8B', ring: '#0E9F8B', particle: '#0E9F8B' }
+      ? { dot: '#FF0000', ring: '#FF0000', particle: '#FF0000' }  /* --c-accent      */
+      : { dot: '#BC0202', ring: '#BC0202', particle: '#BC0202' }  /* --c-accent-deep */
 
   // ── Comet-tail particles ──────────────────────────────────────────
   const spawnParticle = useCallback((x, y, vx, vy) => {

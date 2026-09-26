@@ -6,7 +6,7 @@
 
 export const personalInfo = {
   name: "Raj Karan",
-  initials: "RK",
+  initials: "RK.DEV",
   title: "Full-Stack Developer",
   tagline: "Building fast, reliable web & mobile experiences.",
   roles: [

@@ -28,9 +28,7 @@ export default function Navbar() {
     >
       <nav className="container-px flex items-center justify-between h-16">
         <a href="#home" className="font-mono text-sm text-ink-800 dark:text-ink-100 group">
-          <span className="text-teal-deep dark:text-teal">const</span>{' '}
           <span className="font-semibold">{personalInfo.initials}</span>{' '}
-          <span className="text-ink-400">= () =&gt;</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-1 font-mono text-sm">
@@ -47,9 +45,6 @@ export default function Navbar() {
                       : 'text-ink-400 hover:text-ink-700 dark:hover:text-ink-100'
                   }`}
                 >
-                  <span className="text-teal-deep dark:text-teal mr-1 text-xs">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
                   {item.label}
                   {isActive && (
                     <span className="absolute left-4 right-4 -bottom-0.5 h-px bg-teal-deep dark:bg-teal" />

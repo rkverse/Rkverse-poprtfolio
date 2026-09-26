@@ -1,9 +1,57 @@
+﻿/* ======================================================================
+   BRAND COLOUR PALETTE  -  single source of truth
+   All Tailwind tokens + component styles derive from these CSS vars.
+
+   Source palette and usage ratio:
+     #000000  Pure Black   40%  ->  backgrounds, deepest dark surfaces
+     #830000  Dark Red     25%  ->  borders, muted text, secondary UI
+     #BC0202  Mid Red      20%  ->  card borders, hover, light accent
+     #FF0000  Bright Red   15%  ->  primary accent, highlights, CTA
+
+   RGB channel format enables Tailwind opacity modifiers:
+     e.g.  bg-teal/30  =  rgb(255 0 0 / 0.30)
+   ====================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------------------------------------------ */
+/*  Color tokens (edit here to retheme the entire site)               */
+/* ------------------------------------------------------------------ */
+:root {
+  /* Ink scale  -  darkest to lightest                                */
+  --c-ink-950: 0   0   0;       /* #000000  pure black               */
+  --c-ink-900: 10  0   0;       /* #0A0000                           */
+  --c-ink-800: 20  0   0;       /* #140000                           */
+  --c-ink-700: 32  0   0;       /* #200000                           */
+  --c-ink-600: 56  0   0;       /* #380000                           */
+  --c-ink-500: 96  0   0;       /* #600000                           */
+  --c-ink-400: 131 0   0;       /* #830000  dark red                 */
+  --c-ink-300: 168 53  53;      /* #A83535                           */
+  --c-ink-200: 204 128 128;     /* #CC8080                           */
+  --c-ink-100: 237 212 212;     /* #EDD4D4                           */
+  --c-ink-50:  251 240 240;     /* #FBF0F0                           */
+
+  /* Paper  -  light-mode backgrounds                                 */
+  --c-paper:      255 246 246;  /* #FFF6F6  warm off-white           */
+  --c-paper-card: 255 255 255;  /* #FFFFFF                           */
+
+  /* Accent scale                                                     */
+  --c-accent:      255 0   0;   /* #FF0000  bright red               */
+  --c-accent-soft: 255 153 153; /* #FF9999                           */
+  --c-accent-deep: 188 2   2;   /* #BC0202  mid red                  */
+
+  /* Amber  -  complementary warm tone for tags / badges              */
+  --c-amber:      204 52  0;    /* #CC3400                           */
+  --c-amber-soft: 255 167 120;  /* #FFA778                           */
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
 html {
   scroll-behavior: smooth;
 }
@@ -13,7 +61,7 @@ body {
 }
 
 ::selection {
-  @apply bg-teal/30 text-ink-900;
+  @apply bg-teal/20 text-ink-900;
 }
 
 ::-webkit-scrollbar {
@@ -32,37 +80,35 @@ body {
 
 .modal-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(107, 115, 133, 0.7) transparent;
+  scrollbar-color: rgba(131, 0, 0, 0.5) transparent;
 }
-
 .modal-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
-
 .modal-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .modal-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(107, 115, 133, 0.7);
+  background: rgba(131, 0, 0, 0.5);
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
-
 .dark .modal-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(139, 147, 165, 0.7);
+  background: rgba(188, 2, 2, 0.6);
 }
-
 .dark .modal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(184, 191, 204, 0.8);
+  background: rgba(255, 0, 0, 0.7);
 }
 
 :focus-visible {
-  outline: 2px solid #3FD8C2;
+  outline: 2px solid rgb(var(--c-accent));
   outline-offset: 3px;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Component utilities                                                */
+/* ------------------------------------------------------------------ */
 @layer components {
   .container-px {
     @apply px-6 sm:px-10 lg:px-20;
@@ -98,18 +144,23 @@ body {
   }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Keyframes                                                          */
+/* ------------------------------------------------------------------ */
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(14px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Reduced motion                                                     */
+/* ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
