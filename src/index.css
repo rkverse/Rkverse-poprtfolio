@@ -4,12 +4,12 @@
 
    Source palette and usage ratio:
      #000000  Pure Black   40%  ->  backgrounds, deepest dark surfaces
-     #830000  Dark Red     25%  ->  borders, muted text, secondary UI
-     #BC0202  Mid Red      20%  ->  card borders, hover, light accent
-     #FF0000  Bright Red   15%  ->  primary accent, highlights, CTA
+     #003300  Dark Red     25%  ->  borders, muted text, secondary UI
+     #39FF14  Mid Red      20%  ->  card borders, hover, light accent
+     #00FF41  Matrix Green   15%  ->  primary accent, highlights, CTA
 
    RGB channel format enables Tailwind opacity modifiers:
-     e.g.  bg-teal/30  =  rgb(255 0 0 / 0.30)
+     e.g.  bg-teal/30  =  rgb(0 255 65 / 0.30)
    ====================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -24,29 +24,29 @@
 :root {
   /* Ink scale  -  darkest to lightest                                */
   --c-ink-950: 0   0   0;       /* #000000  pure black               */
-  --c-ink-900: 10  0   0;       /* #0A0000                           */
-  --c-ink-800: 20  0   0;       /* #140000                           */
-  --c-ink-700: 32  0   0;       /* #200000                           */
-  --c-ink-600: 56  0   0;       /* #380000                           */
-  --c-ink-500: 96  0   0;       /* #600000                           */
-  --c-ink-400: 131 0   0;       /* #830000  dark red                 */
-  --c-ink-300: 168 53  53;      /* #A83535                           */
-  --c-ink-200: 204 128 128;     /* #CC8080                           */
-  --c-ink-100: 237 212 212;     /* #EDD4D4                           */
-  --c-ink-50:  251 240 240;     /* #FBF0F0                           */
+  --c-ink-900: 0   8   0;       /* #000800                           */
+  --c-ink-800: 0   16  0;       /* #001000                           */
+  --c-ink-700: 0   26  0;       /* #001A00                           */
+  --c-ink-600: 0   51  0;       /* #003300  dark green                           */
+  --c-ink-500: 0   80  0;       /* #005000                           */
+  --c-ink-400: 0   110 0;       /* #006E00  mid green                 */
+  --c-ink-300: 53  168 53;      /* #35A835                           */
+  --c-ink-200: 128 204 128;     /* #80CC80                           */
+  --c-ink-100: 212 237 212;     /* #D4EDD4                           */
+  --c-ink-50:  240 251 240;     /* #F0FBF0                           */
 
   /* Paper  -  light-mode backgrounds                                 */
-  --c-paper:      255 246 246;  /* #FFF6F6  warm off-white           */
+  --c-paper:      243 255 243;  /* #F3FFF3  cool off-white           */
   --c-paper-card: 255 255 255;  /* #FFFFFF                           */
 
   /* Accent scale                                                     */
-  --c-accent:      255 0   0;   /* #FF0000  bright red               */
-  --c-accent-soft: 255 153 153; /* #FF9999                           */
-  --c-accent-deep: 188 2   2;   /* #BC0202  mid red                  */
+  --c-accent:      0   255 65;  /* #00FF41  matrix green               */
+  --c-accent-soft: 153 255 184; /* #99FFB8                           */
+  --c-accent-deep: 57  255 20;  /* #39FF14  neon green                  */
 
   /* Amber  -  complementary warm tone for tags / badges              */
-  --c-amber:      204 52  0;    /* #CC3400                           */
-  --c-amber-soft: 255 167 120;  /* #FFA778                           */
+  --c-amber:      128 255 0;    /* #80FF00                           */
+  --c-amber-soft: 204 255 128;  /* #CCFF80                           */
 }
 
 /* ------------------------------------------------------------------ */
@@ -80,7 +80,7 @@ body {
 
 .modal-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(131, 0, 0, 0.5) transparent;
+  scrollbar-color: rgba(0, 110, 0, 0.5) transparent;
 }
 .modal-scrollbar::-webkit-scrollbar {
   width: 10px;
@@ -89,16 +89,16 @@ body {
   background: transparent;
 }
 .modal-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(131, 0, 0, 0.5);
+  background: rgba(0, 110, 0, 0.5);
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 .dark .modal-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(188, 2, 2, 0.6);
+  background: rgba(57, 255, 20, 0.5);
 }
 .dark .modal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 0, 0, 0.7);
+  background: rgba(0, 255, 65, 0.7);
 }
 
 :focus-visible {

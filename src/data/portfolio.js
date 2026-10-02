@@ -21,7 +21,7 @@ export const personalInfo = {
   availability: "Available for freelance work",
   email: "rajkaranprem@outlook.com",
   phone: "+91 9962313298",
-  profileImage: "/images/Aboutme.jpg",
+  profileImage: "/images/img.png",
   resumeUrl: "/resume.pdf",
 };
 

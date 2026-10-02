@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+﻿import { useEffect, useRef, useCallback } from 'react'
 
 const LERP             = 0.10
 const PARTICLE_INTERVAL = 28
@@ -22,10 +22,10 @@ export default function AnimatedCursor() {
 
   const getColors = () =>
     isDark.current
-      ? { dot: '#FF0000', ring: '#FF0000', particle: '#FF0000' }  /* --c-accent      */
-      : { dot: '#BC0202', ring: '#BC0202', particle: '#BC0202' }  /* --c-accent-deep */
+      ? { dot: '#00FF41', ring: '#00FF41', particle: '#00FF41' }  /* --c-accent      */
+      : { dot: '#39FF14', ring: '#39FF14', particle: '#39FF14' }  /* --c-accent-deep */
 
-  // ── Comet-tail particles ──────────────────────────────────────────
+  // â”€â”€ Comet-tail particles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const spawnParticle = useCallback((x, y, vx, vy) => {
     const container = trailRef.current
     if (!container) return
@@ -61,7 +61,7 @@ export default function AnimatedCursor() {
     requestAnimationFrame(run)
   }, [])
 
-  // ── Shockwave ripple on click ─────────────────────────────────────
+  // â”€â”€ Shockwave ripple on click â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const spawnRipple = useCallback((x, y) => {
     const container = trailRef.current
     if (!container) return
@@ -94,7 +94,7 @@ export default function AnimatedCursor() {
     }
   }, [])
 
-  // ── RAF loop ──────────────────────────────────────────────────────
+  // â”€â”€ RAF loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const tick = useCallback((now) => {
     const mx = mouse.current.x
     const my = mouse.current.y
@@ -126,7 +126,7 @@ export default function AnimatedCursor() {
     rafRef.current = requestAnimationFrame(tick)
   }, [spawnParticle])
 
-  // ── Mount / unmount ───────────────────────────────────────────────
+  // â”€â”€ Mount / unmount â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     if (window.matchMedia('(pointer: coarse)').matches) return
 
@@ -232,7 +232,7 @@ export default function AnimatedCursor() {
           #${ID_DOT}, #${ID_RING} { display: none !important; }
         }
 
-        /* Hover — ring morphs to rounded-rect */
+        /* Hover â€” ring morphs to rounded-rect */
         #${ID_RING}.ac--hover {
           width: 58px !important;
           height: 58px !important;
@@ -245,7 +245,7 @@ export default function AnimatedCursor() {
           opacity: 0.5 !important;
         }
 
-        /* Click — squish */
+        /* Click â€” squish */
         #${ID_DOT}.ac--click {
           width: 13px !important;
           height: 13px !important;
